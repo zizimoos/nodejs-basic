@@ -1,3 +1,3 @@
 {
-  "exec": "node ./bin/www.js"
+  "exec": "node ./src/bin/www.js"
 }

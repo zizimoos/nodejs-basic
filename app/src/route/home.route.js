@@ -1,9 +1,9 @@
 import express from "express";
-import { renderHello, renderLogin } from "../controller/home.controller.js";
+import { render, process } from "../controller/home.controller.js";
 
 const homeRoutes = express.Router();
 
-homeRoutes.route("/").get(renderHello);
-homeRoutes.route("/login").get(renderLogin);
+homeRoutes.route("/").get(render.hello);
+homeRoutes.route("/login").get(render.login).post(process.login);
 
 export default homeRoutes;

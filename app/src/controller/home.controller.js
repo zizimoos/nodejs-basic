@@ -19,12 +19,24 @@ export const render = {
   login: (req, res) => {
     res.render("home/login");
   },
+  register: (req, res) => {
+    res.render("home/register");
+  },
 };
 
 export const process = {
   login: (req, res) => {
     const user = new User(req.body);
     const reponse = user.login();
+    if (reponse.success) {
+      res.status(HttpStatus.OK.code).json(reponse);
+    } else {
+      res.status(HttpStatus.BAD_REQUEST.code).json(reponse);
+    }
+  },
+  register: (req, res) => {
+    const user = new User(req.body);
+    const reponse = user.register();
     if (reponse.success) {
       res.status(HttpStatus.OK.code).json(reponse);
     } else {

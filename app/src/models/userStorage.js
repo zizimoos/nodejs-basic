@@ -3,6 +3,7 @@ class UserStorage {
     id: ["admin", "user", "tessa"],
     password: ["1", "12", "123"],
     name: ["관리자", "사용자", "테사"],
+    email: ["aa@aa.com", "bb@bb.com", "cc@cc.com"],
   };
 
   static getUsers(...fields) {
@@ -24,6 +25,14 @@ class UserStorage {
       return newUser;
     }, {});
     return userInfo;
+  }
+
+  static save(id, name, password, email) {
+    const users = this.#users;
+    users.id.push(id);
+    users.name.push(name);
+    users.password.push(password);
+    users.email.push(email);
   }
 }
 

@@ -19,10 +19,10 @@ class User {
   register() {
     const { id, name, password, confirmPassword, email } = this.body;
     if (password === confirmPassword) {
-      if (UserStorage.getUserInfo(id)) {
+      if (UserStorage.getUserInfo(id).id === id) {
         return { success: false, message: "이미 존재하는 아이디입니다." };
       }
-      // UserStorage.addUser(id, name, password, email);
+      UserStorage.save(id, name, password, email);
       return { success: true, message: "회원가입 성공" };
     }
     return { success: false, message: "비밀번호가 일치하지 않습니다." };

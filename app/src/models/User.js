@@ -5,15 +5,17 @@ class User {
     this.body = body;
   }
 
-  login() {
-    const { id, password } = UserStorage.getUserInfo(this.body.id);
-    if (id === this.body.id) {
-      if (password === this.body.password) {
-        return { success: true, message: "로그인 성공" };
-      }
-      return { success: false, message: "비밀번호가 틀렸습니다." };
+  async login() {
+    const userInfo = await UserStorage.getUserInfo(this.body.id);
+    const { id, name, password, email } = userInfo;
+
+    console.log(id === this.body.id);
+    console.log(password === this.body.password);
+
+    if (id === this.body.id && password === this.body.password) {
+      return { success: true, message: "로그인 성공" };
     }
-    return { success: false, message: "존재하지 않는 아이디입니다." };
+    return { success: false, message: "로그인 실패" };
   }
 
   register() {

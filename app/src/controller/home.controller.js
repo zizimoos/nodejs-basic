@@ -25,9 +25,10 @@ export const render = {
 };
 
 export const process = {
-  login: (req, res) => {
+  login: async (req, res) => {
     const user = new User(req.body);
-    const reponse = user.login();
+    const reponse = await user.login();
+    console.log("controller : ", reponse);
     if (reponse.success) {
       res.status(HttpStatus.OK.code).json(reponse);
     } else {

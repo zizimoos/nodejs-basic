@@ -1,0 +1,6 @@
+{
+  "id": ["admin", "user", "tessa"],
+  "password": ["1", "12", "123"],
+  "name": ["관리자", "사용자", "테사"],
+  "email": ["aa@aa.com", "bb@bb.com", "cc@cc.com"]
+}

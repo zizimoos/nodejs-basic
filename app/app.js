@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 
-import homeRoutes from "./route/home.route.js";
+import homeRoutes from "./src/route/home.route.js";
 
 export const app = express();
 

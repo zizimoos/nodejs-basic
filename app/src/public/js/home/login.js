@@ -18,11 +18,14 @@ function login() {
     .then((res) => res.json())
     .then((res) => {
       if (res.success) {
-        alert("로그인 성공");
+        alert(res.message);
         window.location.href = "/";
       } else {
-        alert("로그인 실패");
+        alert(res.message);
       }
+    })
+    .catch((err) => {
+      console.error(new Error("로그인 중 에러 발생"));
     });
 }
 

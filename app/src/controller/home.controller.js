@@ -1,3 +1,6 @@
+import UserStorage from "../models/UserStorage.js";
+import User from "../models/User.js";
+
 const HttpStatus = {
   OK: { code: 200, status: "OK" },
   CREATED: { code: 201, status: "CREATED" },
@@ -20,22 +23,14 @@ export const render = {
 
 export const process = {
   login: (req, res) => {
-    const { id, password } = req.body;
-
-    if (users.id.includes(id)) {
-      const idx = users.id.indexOf(id);
-      if (users.password[idx] === password) {
-        res.status(HttpStatus.OK.code).json({ success: true });
-      } else {
-        res.status(HttpStatus.UNAUTHORIZED.code).json({ success: false });
-      }
+    const user = new User(req.body);
+    const reponse = user.login();
+    if (reponse.success) {
+      res.status(HttpStatus.OK.code).json(reponse);
+    } else {
+      res.status(HttpStatus.BAD_REQUEST.code).json(reponse);
     }
   },
-};
-
-const users = {
-  id: ["admin", "user", "tessa"],
-  password: ["1", "12", "123"],
 };
 
 export default HttpStatus;

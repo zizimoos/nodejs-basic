@@ -8,14 +8,16 @@ class User {
   async login() {
     const userInfo = await UserStorage.getUserInfo(this.body.id);
     const { id, name, password, email } = userInfo;
-
-    console.log(id === this.body.id);
-    console.log(password === this.body.password);
-
+    console.log("userInfo :", id, name, password, email);
+    if (!id) {
+      return { success: false, message: "아이디가 존재하지 않습니다." };
+    }
+    if (password !== this.body.password) {
+      return { success: false, message: "비밀번호가 일치하지 않습니다." };
+    }
     if (id === this.body.id && password === this.body.password) {
       return { success: true, message: "로그인 성공" };
     }
-    return { success: false, message: "로그인 실패" };
   }
 
   register() {

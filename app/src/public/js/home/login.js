@@ -17,7 +17,7 @@ function login() {
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log("front end : ", res);
+      console.log("res :", res);
       if (res.success) {
         window.alert(res.message);
         window.location.href = "/";

@@ -28,9 +28,8 @@ export const process = {
   login: async (req, res) => {
     const user = new User(req.body);
     const reponse = await user.login();
-    console.log("controller : ", reponse);
     if (reponse.success) {
-      res.status(HttpStatus.OK.code).json(reponse);
+      return res.status(HttpStatus.OK.code).json(reponse);
     } else {
       res.status(HttpStatus.BAD_REQUEST.code).json(reponse);
     }

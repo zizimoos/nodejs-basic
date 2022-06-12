@@ -13,10 +13,10 @@ class UserStorage {
   }
 
   static async getUserInfo(id) {
-    console.log(id);
     try {
       const data = await fs.promises.readFile(
-        "./src/databases/fileSystem/users.json"
+        "./src/databases/fileSystem/users.json",
+        "utf-8"
       );
       const users = JSON.parse(data);
       const idx = users.id.indexOf(id);

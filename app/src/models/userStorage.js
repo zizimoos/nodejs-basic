@@ -56,7 +56,7 @@ class UserStorage {
         "./src/databases/fileSystem/users.json",
         data
       );
-      return { success: true, message: "회원가입 성공" };
+      return { success: true, message: "회원저장 성공" };
     } catch (err) {
       console.error(err);
     }

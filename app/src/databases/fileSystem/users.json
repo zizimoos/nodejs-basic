@@ -1,6 +1,14 @@
 {
-  "id": ["admin", "user", "tessa"],
-  "password": ["1", "12", "123"],
-  "name": ["관리자", "사용자", "테사"],
-  "email": ["aa@aa.com", "bb@bb.com", "cc@cc.com"]
+  "id": ["admin", "user", "tessa", "vita704", "credit1!", "sans", "seesang"],
+  "name": ["관리자", "사용자", "테사", "리사", "NUMBER ONE", "tomson", "jane"],
+  "password": ["1", "12", "123", "12", "12", "12", "12"],
+  "email": [
+    "aa@aa.com",
+    "bb@bb.com",
+    "cc@cc.com",
+    "risa@blackpink.com",
+    "roel@roel.com",
+    "roeljl@roeljl.com",
+    "blackpink@gmail.com"
+  ]
 }

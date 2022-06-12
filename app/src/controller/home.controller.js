@@ -34,9 +34,10 @@ export const process = {
       res.status(HttpStatus.BAD_REQUEST.code).json(reponse);
     }
   },
-  register: (req, res) => {
+  register: async (req, res) => {
     const user = new User(req.body);
-    const reponse = user.register();
+    const reponse = await user.register();
+    console.log("reponse :", reponse);
     if (reponse.success) {
       res.status(HttpStatus.OK.code).json(reponse);
     } else {
